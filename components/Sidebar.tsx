@@ -8,12 +8,18 @@ import {
   Settings,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Sidebar = () => {
   return (
     <aside className="w-64 h-full bg-gray-800 text-white">
-      <div className="p-4">
-        <h1 className="text-xl font-bold">Forest Hill Admin</h1>
+      <div className="p-4 flex justify-center items-center w-full">
+        <Image
+          src="/forest-hill-logo.png"
+          alt="Forest Hill Logo"
+          width={200}
+          height={200}
+        />
       </div>
       <nav className="mt-10">
         <Link href="/" className="flex items-center p-2 hover:bg-gray-700">
