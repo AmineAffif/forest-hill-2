@@ -17,15 +17,13 @@ const EquipmentStatus = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyBarChart
-        title="Equipment Status"
-        description="January - June 2024"
-        data={equipmentStatusData}
-        dataKeys={dataKeys}
-        footerText="Operational equipment increased by 5% this month"
-      />
-    </div>
+    <MyBarChart
+      title="Equipment Status"
+      description="January - June 2024"
+      data={equipmentStatusData}
+      dataKeys={dataKeys}
+      footerText="Operational equipment increased by 5% this month"
+    />
   );
 };
 

@@ -12,16 +12,14 @@ const EquipmentOccupancy = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyLineChart
-        title="Equipment Occupancy Rate"
-        description="January - June 2024"
-        data={equipmentOccupancyData}
-        dataKey="value"
-        lineColor="hsl(var(--chart-3))"
-        footerText="Equipment occupancy rate increased by 8% this month"
-      />
-    </div>
+    <MyLineChart
+      title="Equipment Occupancy Rate"
+      description="January - June 2024"
+      data={equipmentOccupancyData}
+      dataKey="value"
+      lineColor="hsl(var(--chart-3))"
+      footerText="Equipment occupancy rate increased by 8% this month"
+    />
   );
 };
 

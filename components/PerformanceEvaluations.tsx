@@ -12,16 +12,14 @@ const PerformanceEvaluations = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyRadarChart
-        title="Performance Evaluations"
-        description="Showing evaluation levels for the last 6 months"
-        data={performanceEvaluationsData}
-        dataKey="value"
-        radarColor="hsl(var(--chart-2))"
-        footerText="Performance evaluations increased by 10% this month"
-      />
-    </div>
+    <MyRadarChart
+      title="Performance Evaluations"
+      description="Showing evaluation levels for the last 6 months"
+      data={performanceEvaluationsData}
+      dataKey="value"
+      radarColor="hsl(var(--chart-2))"
+      footerText="Performance evaluations increased by 10% this month"
+    />
   );
 };
 

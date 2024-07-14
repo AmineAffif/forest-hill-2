@@ -17,15 +17,13 @@ const ExpiredSubscriptions = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyBarChart
-        title="Expired and Renewing Subscriptions"
-        description="January - June 2024"
-        data={expiredSubscriptionsData}
-        dataKeys={dataKeys}
-        footerText="Expirations and renewals for the last 6 months"
-      />
-    </div>
+    <MyBarChart
+      title="Expired and Renewing Subscriptions"
+      description="January - June 2024"
+      data={expiredSubscriptionsData}
+      dataKeys={dataKeys}
+      footerText="Expirations and renewals for the last 6 months"
+    />
   );
 };
 

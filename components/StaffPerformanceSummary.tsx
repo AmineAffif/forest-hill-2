@@ -12,16 +12,14 @@ const StaffPerformanceSummary = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyLineChart
-        title="Staff Performance"
-        description="January - June 2024"
-        data={staffPerformanceData}
-        dataKey="value"
-        lineColor="hsl(var(--chart-4))"
-        footerText="Staff performance increased by 10% this month"
-      />
-    </div>
+    <MyLineChart
+      title="Staff Performance"
+      description="January - June 2024"
+      data={staffPerformanceData}
+      dataKey="value"
+      lineColor="hsl(var(--chart-4))"
+      footerText="Staff performance increased by 10% this month"
+    />
   );
 };
 

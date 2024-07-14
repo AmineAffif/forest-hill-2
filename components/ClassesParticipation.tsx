@@ -18,15 +18,13 @@ const ClassesParticipation = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyBarChart
-        title="Participation by Class Type"
-        description="January - June 2024"
-        data={classesParticipationData}
-        dataKeys={dataKeys}
-        footerText="Participation increased by 20% this month"
-      />
-    </div>
+    <MyBarChart
+      title="Participation by Class Type"
+      description="January - June 2024"
+      data={classesParticipationData}
+      dataKeys={dataKeys}
+      footerText="Participation increased by 20% this month"
+    />
   );
 };
 

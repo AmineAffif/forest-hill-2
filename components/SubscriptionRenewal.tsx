@@ -17,14 +17,12 @@ const SubscriptionRenewal = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyAreaChart
-        title="Subscription Renewal Rate"
-        description="January - June 2024"
-        data={subscriptionRenewalData}
-        dataKeys={dataKeys}
-      />
-    </div>
+    <MyAreaChart
+      title="Subscription Renewal Rate"
+      description="January - June 2024"
+      data={subscriptionRenewalData}
+      dataKeys={dataKeys}
+    />
   );
 };
 

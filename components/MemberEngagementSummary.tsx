@@ -12,16 +12,14 @@ const MemberEngagementSummary = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyLineChart
-        title="Member Engagement"
-        description="January - June 2024"
-        data={memberEngagementData}
-        dataKey="value"
-        lineColor="hsl(var(--chart-4))"
-        footerText="Member engagement increased by 12% this month"
-      />
-    </div>
+    <MyLineChart
+      title="Member Engagement"
+      description="January - June 2024"
+      data={memberEngagementData}
+      dataKey="value"
+      lineColor="hsl(var(--chart-4))"
+      footerText="Member engagement increased by 12% this month"
+    />
   );
 };
 

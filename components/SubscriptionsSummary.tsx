@@ -28,17 +28,15 @@ const SubscriptionsSummary = () => {
   } satisfies ChartConfig;
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyPieChart
-        title="Subscription Types"
-        description="Membership distribution by type"
-        data={subscriptionsData}
-        dataKey="value"
-        nameKey="type"
-        config={chartConfig}
-        footerText="Trending up by 5.2% this month"
-      />
-    </div>
+    <MyPieChart
+      title="Subscription Types"
+      description="Membership distribution by type"
+      data={subscriptionsData}
+      dataKey="value"
+      nameKey="type"
+      config={chartConfig}
+      footerText="Trending up by 5.2% this month"
+    />
   );
 };
 

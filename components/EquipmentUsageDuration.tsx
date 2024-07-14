@@ -18,15 +18,13 @@ const EquipmentUsageDuration = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyBarChart
-        title="Average Usage Duration per Equipment"
-        description="January - June 2024"
-        data={equipmentUsageDurationData}
-        dataKeys={dataKeys}
-        footerText="Usage duration increased by 20% this month"
-      />
-    </div>
+    <MyBarChart
+      title="Average Usage Duration per Equipment"
+      description="January - June 2024"
+      data={equipmentUsageDurationData}
+      dataKeys={dataKeys}
+      footerText="Usage duration increased by 20% this month"
+    />
   );
 };
 

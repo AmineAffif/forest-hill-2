@@ -12,16 +12,14 @@ const FinanceSummary = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyLineChart
-        title="Finance Overview"
-        description="January - June 2024"
-        data={financeData}
-        dataKey="value"
-        lineColor="hsl(var(--chart-4))"
-        footerText="Finance growth by 15% this quarter"
-      />
-    </div>
+    <MyLineChart
+      title="Finance Overview"
+      description="January - June 2024"
+      data={financeData}
+      dataKey="value"
+      lineColor="hsl(var(--chart-4))"
+      footerText="Finance growth by 15% this quarter"
+    />
   );
 };
 

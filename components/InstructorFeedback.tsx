@@ -17,15 +17,13 @@ const InstructorFeedback = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyBarChart
-        title="Instructor Feedback"
-        description="January - June 2024"
-        data={instructorFeedbackData}
-        dataKeys={dataKeys}
-        footerText="Positive and negative feedback for the last 6 months"
-      />
-    </div>
+    <MyBarChart
+      title="Instructor Feedback"
+      description="January - June 2024"
+      data={instructorFeedbackData}
+      dataKeys={dataKeys}
+      footerText="Positive and negative feedback for the last 6 months"
+    />
   );
 };
 

@@ -18,14 +18,12 @@ const FinanceForecast = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyAreaChart
-        title="Revenue Forecast"
-        description="January - June 2024"
-        data={financeForecastData}
-        dataKeys={dataKeys}
-      />
-    </div>
+    <MyAreaChart
+      title="Revenue Forecast"
+      description="January - June 2024"
+      data={financeForecastData}
+      dataKeys={dataKeys}
+    />
   );
 };
 

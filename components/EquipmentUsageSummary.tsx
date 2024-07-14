@@ -12,16 +12,14 @@ const EquipmentUsageSummary = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyLineChart
-        title="Equipment Usage Over Time"
-        description="January - June 2024"
-        data={equipmentUsageData}
-        dataKey="value"
-        lineColor="hsl(var(--chart-1))"
-        footerText="Trending up by 5.2% this month"
-      />
-    </div>
+    <MyLineChart
+      title="Equipment Usage Over Time"
+      description="January - June 2024"
+      data={equipmentUsageData}
+      dataKey="value"
+      lineColor="hsl(var(--chart-1))"
+      footerText="Trending up by 5.2% this month"
+    />
   );
 };
 

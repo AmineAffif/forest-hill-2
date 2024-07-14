@@ -12,16 +12,14 @@ const OrderHistory = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyLineChart
-        title="Order History"
-        description="January - June 2024"
-        data={orderHistoryData}
-        dataKey="value"
-        lineColor="hsl(var(--chart-5))"
-        footerText="Orders increased by 8% this month"
-      />
-    </div>
+    <MyLineChart
+      title="Order History"
+      description="January - June 2024"
+      data={orderHistoryData}
+      dataKey="value"
+      lineColor="hsl(var(--chart-5))"
+      footerText="Orders increased by 8% this month"
+    />
   );
 };
 

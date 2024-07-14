@@ -12,16 +12,14 @@ const FinanceRevenues = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyLineChart
-        title="Monthly/Annual Revenues"
-        description="January - June 2024"
-        data={financeRevenuesData}
-        dataKey="value"
-        lineColor="hsl(var(--chart-4))"
-        footerText="Revenues increased by 15% this quarter"
-      />
-    </div>
+    <MyLineChart
+      title="Monthly/Annual Revenues"
+      description="January - June 2024"
+      data={financeRevenuesData}
+      dataKey="value"
+      lineColor="hsl(var(--chart-4))"
+      footerText="Revenues increased by 15% this quarter"
+    />
   );
 };
 

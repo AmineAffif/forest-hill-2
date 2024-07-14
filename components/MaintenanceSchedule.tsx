@@ -12,16 +12,14 @@ const MaintenanceSchedule = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyLineChart
-        title="Maintenance Schedule"
-        description="January - June 2024"
-        data={maintenanceScheduleData}
-        dataKey="value"
-        lineColor="hsl(var(--chart-5))"
-        footerText="Maintenance events increased by 20% this month"
-      />
-    </div>
+    <MyLineChart
+      title="Maintenance Schedule"
+      description="January - June 2024"
+      data={maintenanceScheduleData}
+      dataKey="value"
+      lineColor="hsl(var(--chart-5))"
+      footerText="Maintenance events increased by 20% this month"
+    />
   );
 };
 

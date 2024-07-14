@@ -12,16 +12,14 @@ const ClassesActivitiesSummary = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyLineChart
-        title="Classes Activities"
-        description="January - June 2024"
-        data={classesActivitiesData}
-        dataKey="value"
-        lineColor="hsl(var(--chart-1))"
-        footerText="Trending up by 10% this month"
-      />
-    </div>
+    <MyLineChart
+      title="Classes Activities"
+      description="January - June 2024"
+      data={classesActivitiesData}
+      dataKey="value"
+      lineColor="hsl(var(--chart-1))"
+      footerText="Trending up by 10% this month"
+    />
   );
 };
 

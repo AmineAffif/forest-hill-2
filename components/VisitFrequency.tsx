@@ -12,16 +12,14 @@ const VisitFrequency = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyLineChart
-        title="Visit Frequency per Member"
-        description="January - June 2024"
-        data={visitFrequencyData}
-        dataKey="value"
-        lineColor="hsl(var(--chart-1))"
-        footerText="Visit frequency increased by 15% this month"
-      />
-    </div>
+    <MyLineChart
+      title="Visit Frequency per Member"
+      description="January - June 2024"
+      data={visitFrequencyData}
+      dataKey="value"
+      lineColor="hsl(var(--chart-1))"
+      footerText="Visit frequency increased by 15% this month"
+    />
   );
 };
 

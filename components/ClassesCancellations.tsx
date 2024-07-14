@@ -17,15 +17,13 @@ const ClassesCancellations = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyBarChart
-        title="Class Cancellations and No-shows"
-        description="January - June 2024"
-        data={classesCancellationsData}
-        dataKeys={dataKeys}
-        footerText="Cancellations and no-shows increased by 15% this month"
-      />
-    </div>
+    <MyBarChart
+      title="Class Cancellations and No-shows"
+      description="January - June 2024"
+      data={classesCancellationsData}
+      dataKeys={dataKeys}
+      footerText="Cancellations and no-shows increased by 15% this month"
+    />
   );
 };
 

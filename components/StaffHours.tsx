@@ -12,16 +12,14 @@ const StaffHours = () => {
   ];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyLineChart
-        title="Staff Hours and Presence"
-        description="January - June 2024"
-        data={staffHoursData}
-        dataKey="value"
-        lineColor="hsl(var(--chart-2))"
-        footerText="Staff hours increased by 5% this month"
-      />
-    </div>
+    <MyLineChart
+      title="Staff Hours and Presence"
+      description="January - June 2024"
+      data={staffHoursData}
+      dataKey="value"
+      lineColor="hsl(var(--chart-2))"
+      footerText="Staff hours increased by 5% this month"
+    />
   );
 };
 

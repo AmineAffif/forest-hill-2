@@ -14,15 +14,13 @@ const MaintenanceCosts = () => {
   const dataKeys = [{ key: "cost", color: "hsl(var(--chart-1))" }];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyBarChart
-        title="Maintenance Costs"
-        description="January - June 2024"
-        data={maintenanceCostsData}
-        dataKeys={dataKeys}
-        footerText="Maintenance costs increased by 10% this month"
-      />
-    </div>
+    <MyBarChart
+      title="Maintenance Costs"
+      description="January - June 2024"
+      data={maintenanceCostsData}
+      dataKeys={dataKeys}
+      footerText="Maintenance costs increased by 10% this month"
+    />
   );
 };
 

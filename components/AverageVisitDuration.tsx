@@ -14,15 +14,13 @@ const AverageVisitDuration = () => {
   const dataKeys = [{ key: "duration", color: "hsl(var(--chart-1))" }];
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <MyBarChart
-        title="Average Visit Duration"
-        description="January - June 2024"
-        data={averageVisitDurationData}
-        dataKeys={dataKeys}
-        footerText="Visit duration increased by 10% this month"
-      />
-    </div>
+    <MyBarChart
+      title="Average Visit Duration"
+      description="January - June 2024"
+      data={averageVisitDurationData}
+      dataKeys={dataKeys}
+      footerText="Visit duration increased by 10% this month"
+    />
   );
 };
 
