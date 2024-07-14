@@ -25,30 +25,35 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 
-const chartData = [
-  { month: "January", satisfaction: 80 },
-  { month: "February", satisfaction: 90 },
-  { month: "March", satisfaction: 85 },
-  { month: "April", satisfaction: 70 },
-  { month: "May", satisfaction: 75 },
-  { month: "June", satisfaction: 80 },
-];
+interface MyRadarChartProps {
+  title: string;
+  description: string;
+  data: any[];
+  dataKey: string;
+  radarColor: string;
+  footerText: string;
+}
 
-const chartConfig = {
-  satisfaction: {
-    label: "Satisfaction",
-    color: "hsl(var(--chart-1))",
-  },
-} satisfies ChartConfig;
+export function MyRadarChart({
+  title,
+  description,
+  data,
+  dataKey,
+  radarColor,
+  footerText,
+}: MyRadarChartProps) {
+  const chartConfig = {
+    [dataKey]: {
+      label: dataKey,
+      color: radarColor,
+    },
+  } satisfies ChartConfig;
 
-export function MyRadarChart() {
   return (
     <Card>
       <CardHeader className="items-center pb-4">
-        <CardTitle>Member Satisfaction</CardTitle>
-        <CardDescription>
-          Showing satisfaction levels for the last 6 months
-        </CardDescription>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent className="pb-0">
         <ChartContainer
@@ -56,14 +61,10 @@ export function MyRadarChart() {
           className="mx-auto aspect-square max-h-[250px]"
         >
           <ResponsiveContainer width="100%" height={300}>
-            <RadarChart data={chartData}>
+            <RadarChart data={data}>
               <PolarGrid />
               <PolarAngleAxis dataKey="month" />
-              <Radar
-                dataKey="satisfaction"
-                fill="var(--color-satisfaction)"
-                fillOpacity={0.6}
-              />
+              <Radar dataKey={dataKey} fill={radarColor} fillOpacity={0.6} />
               <Tooltip />
             </RadarChart>
           </ResponsiveContainer>
@@ -71,7 +72,7 @@ export function MyRadarChart() {
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          {footerText} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="flex items-center gap-2 leading-none text-muted-foreground">
           January - June 2024

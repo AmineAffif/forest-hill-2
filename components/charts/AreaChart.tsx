@@ -35,33 +35,24 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const chartData = [
-  { date: "2024-01-01", visitors: 222, desktop: 150, mobile: 72 },
-  { date: "2024-02-01", visitors: 97, desktop: 60, mobile: 37 },
-  { date: "2024-03-01", visitors: 167, desktop: 100, mobile: 67 },
-  { date: "2024-04-01", visitors: 242, desktop: 180, mobile: 62 },
-  { date: "2024-05-01", visitors: 373, desktop: 230, mobile: 143 },
-  { date: "2024-06-01", visitors: 301, desktop: 200, mobile: 101 },
-];
+interface MyAreaChartProps {
+  title: string;
+  description: string;
+  data: any[];
+  dataKeys: { key: string; color: string }[];
+  footerText?: string;
+}
 
-const chartConfig = {
-  visitors: {
-    label: "Visitors",
-  },
-  desktop: {
-    label: "Desktop",
-    color: "hsl(var(--chart-1))",
-  },
-  mobile: {
-    label: "Mobile",
-    color: "hsl(var(--chart-2))",
-  },
-} satisfies ChartConfig;
-
-export function MyAreaChart() {
+export function MyAreaChart({
+  title,
+  description,
+  data,
+  dataKeys,
+  footerText,
+}: MyAreaChartProps) {
   const [timeRange, setTimeRange] = React.useState("90d");
 
-  const filteredData = chartData.filter((item) => {
+  const filteredData = data.filter((item) => {
     const date = new Date(item.date);
     const now = new Date();
     let daysToSubtract = 90;
@@ -74,14 +65,17 @@ export function MyAreaChart() {
     return date >= now;
   });
 
+  const chartConfig: ChartConfig = dataKeys.reduce((acc, { key, color }) => {
+    acc[key] = { label: key, color: color };
+    return acc;
+  }, {} as ChartConfig);
+
   return (
     <Card>
       <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row">
         <div className="grid flex-1 gap-1 text-center sm:text-left">
-          <CardTitle>Visitor Statistics</CardTitle>
-          <CardDescription>
-            Showing total visitors for the last 3 months
-          </CardDescription>
+          <CardTitle>{title}</CardTitle>
+          <CardDescription>{description}</CardDescription>
         </div>
         <Select value={timeRange} onValueChange={setTimeRange}>
           <SelectTrigger
@@ -111,57 +105,35 @@ export function MyAreaChart() {
           <ResponsiveContainer width="100%" height={300}>
             <AreaChart data={filteredData}>
               <defs>
-                <linearGradient id="fillDesktop" x1="0" y1="0" x2="0" y2="1">
-                  <stop
-                    offset="5%"
-                    stopColor="var(--color-desktop)"
-                    stopOpacity={0.8}
-                  />
-                  <stop
-                    offset="95%"
-                    stopColor="var(--color-desktop)"
-                    stopOpacity={0.1}
-                  />
-                </linearGradient>
-                <linearGradient id="fillMobile" x1="0" y1="0" x2="0" y2="1">
-                  <stop
-                    offset="5%"
-                    stopColor="var(--color-mobile)"
-                    stopOpacity={0.8}
-                  />
-                  <stop
-                    offset="95%"
-                    stopColor="var(--color-mobile)"
-                    stopOpacity={0.1}
-                  />
-                </linearGradient>
+                {dataKeys.map(({ key, color }) => (
+                  <linearGradient
+                    id={`fill${key}`}
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                    key={key}
+                  >
+                    <stop offset="5%" stopColor={color} stopOpacity={0.8} />
+                    <stop offset="95%" stopColor={color} stopOpacity={0.1} />
+                  </linearGradient>
+                ))}
               </defs>
               <CartesianGrid vertical={false} />
               <XAxis dataKey="date" />
               <YAxis />
               <Tooltip />
               <Legend />
-              <Area
-                dataKey="mobile"
-                type="natural"
-                fill="url(#fillMobile)"
-                stroke="var(--color-mobile)"
-                stackId="a"
-              />
-              <Area
-                dataKey="desktop"
-                type="natural"
-                fill="url(#fillDesktop)"
-                stroke="var(--color-desktop)"
-                stackId="a"
-              />
-              <Area
-                dataKey="visitors"
-                type="monotone"
-                stroke="var(--color-visitors)"
-                fillOpacity={0.3}
-                fill="url(#colorUv)"
-              />
+              {dataKeys.map(({ key, color }) => (
+                <Area
+                  key={key}
+                  dataKey={key}
+                  type="natural"
+                  fill={`url(#fill${key})`}
+                  stroke={color}
+                  stackId="a"
+                />
+              ))}
             </AreaChart>
           </ResponsiveContainer>
         </ChartContainer>
