@@ -11,7 +11,6 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-
 import {
   Card,
   CardContent,
@@ -27,35 +26,42 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 
-const chartData = [
-  { month: "January", activeMembers: 186 },
-  { month: "February", activeMembers: 305 },
-  { month: "March", activeMembers: 237 },
-  { month: "April", activeMembers: 73 },
-  { month: "May", activeMembers: 209 },
-  { month: "June", activeMembers: 214 },
-];
+interface MyLineChartProps {
+  title: string;
+  description: string;
+  data: any[];
+  dataKey: string;
+  lineColor: string;
+  footerText: string;
+}
 
-const chartConfig = {
-  activeMembers: {
-    label: "Active Members",
-    color: "hsl(var(--chart-1))",
-  },
-} satisfies ChartConfig;
+export function MyLineChart({
+  title,
+  description,
+  data,
+  dataKey,
+  lineColor,
+  footerText,
+}: MyLineChartProps) {
+  const chartConfig = {
+    [dataKey]: {
+      label: dataKey,
+      color: lineColor,
+    },
+  } satisfies ChartConfig;
 
-export function MyLineChart() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Active Members Over Time</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart
               accessibilityLayer
-              data={chartData}
+              data={data}
               margin={{
                 left: 12,
                 right: 12,
@@ -73,9 +79,9 @@ export function MyLineChart() {
               <Tooltip />
               <Legend />
               <Line
-                dataKey="activeMembers"
+                dataKey={dataKey}
                 type="natural"
-                stroke="var(--color-activeMembers)"
+                stroke={lineColor}
                 strokeWidth={2}
                 dot={false}
               />
@@ -85,10 +91,10 @@ export function MyLineChart() {
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          {footerText} <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          Showing active members for the last 6 months
+          Showing {dataKey} data
         </div>
       </CardFooter>
     </Card>
