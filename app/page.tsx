@@ -8,15 +8,19 @@ import StaffPerformanceSummary from "../components/StaffPerformanceSummary";
 
 const Dashboard = () => {
   return (
-    <>
-      <Overview />
-      <SubscriptionsSummary />
-      <EquipmentUsageSummary />
-      <ClassesActivitiesSummary />
-      <FinanceSummary />
-      <MemberEngagementSummary />
-      <StaffPerformanceSummary />
-    </>
+    <div className="flex flex-col gap-4">
+      <div className="w-full">
+        <Overview />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <SubscriptionsSummary />
+        <EquipmentUsageSummary />
+        <ClassesActivitiesSummary />
+        <FinanceSummary />
+        <MemberEngagementSummary />
+        <StaffPerformanceSummary />
+      </div>
+    </div>
   );
 };
 

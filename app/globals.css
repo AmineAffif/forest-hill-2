@@ -66,4 +66,11 @@
   body {
     @apply bg-background text-foreground;
   }
+  .card {
+    @apply bg-white p-4 rounded shadow;
+    min-height: 300px; /* ajustez cette valeur selon vos besoins */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }

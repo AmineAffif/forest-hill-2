@@ -13,7 +13,6 @@ const EquipmentUsageSummary = () => {
 
   return (
     <div className="bg-white p-4 rounded shadow">
-      <h2 className="text-xl font-bold mb-4">Equipment Usage</h2>
       <MyLineChart
         title="Equipment Usage Over Time"
         description="January - June 2024"
