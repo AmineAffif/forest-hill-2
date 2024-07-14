@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Forest Hill Dashboard",
-  description: "Made by Amne Affif",
+  description: "blank",
 };
 
 export default function RootLayout({
