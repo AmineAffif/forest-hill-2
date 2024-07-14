@@ -1,5 +1,16 @@
 import React from "react";
-import { Home, BarChart2, Activity, DollarSign, Users, X } from "lucide-react";
+import {
+  Home,
+  BarChart2,
+  Activity,
+  DollarSign,
+  Users,
+  Settings,
+  Box,
+  Wrench,
+  ClipboardList,
+  X,
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -22,62 +33,63 @@ const Sidebar = ({
           alt="Forest Hill Logo"
           width={200}
           height={200}
+          priority
         />
         <button className="md:hidden" onClick={toggleSidebar}>
           <X className="text-white" />
         </button>
       </div>
       <nav className="mt-10">
-        <Link href="/" className="flex items-center p-2 hover:bg-gray-700">
+        <Link href="/" className="flex items-center p-2 pl-5 hover:bg-gray-700">
           <Home className="mr-3" /> Dashboard
         </Link>
         <Link
           href="/subscriptions"
-          className="flex items-center p-2 hover:bg-gray-700"
+          className="flex items-center p-2 pl-5 hover:bg-gray-700"
         >
           <BarChart2 className="mr-3" /> Subscriptions
         </Link>
         <Link
           href="/equipment"
-          className="flex items-center p-2 hover:bg-gray-700"
+          className="flex items-center p-2 pl-5 hover:bg-gray-700"
         >
-          <Activity className="mr-3" /> Equipment
+          <Box className="mr-3" /> Equipment
         </Link>
         <Link
           href="/classes"
-          className="flex items-center p-2 hover:bg-gray-700"
+          className="flex items-center p-2 pl-5 hover:bg-gray-700"
         >
-          <Activity className="mr-3" /> Classes
+          <ClipboardList className="mr-3" /> Classes
         </Link>
         <Link
           href="/finance"
-          className="flex items-center p-2 hover:bg-gray-700"
+          className="flex items-center p-2 pl-5 hover:bg-gray-700"
         >
           <DollarSign className="mr-3" /> Finance
         </Link>
         <Link
           href="/member-engagement"
-          className="flex items-center p-2 hover:bg-gray-700"
+          className="flex items-center p-2 pl-5 hover:bg-gray-700"
         >
           <Users className="mr-3" /> Member Engagement
         </Link>
         <Link
           href="/staff-performance"
-          className="flex items-center p-2 hover:bg-gray-700"
+          className="flex items-center p-2 pl-5 hover:bg-gray-700"
         >
-          <Users className="mr-3" /> Staff Performance
+          <Settings className="mr-3" /> Staff Performance
         </Link>
         <Link
           href="/inventory-management"
-          className="flex items-center p-2 hover:bg-gray-700"
+          className="flex items-center p-2 pl-5 hover:bg-gray-700"
         >
-          <X className="mr-3" /> Inventory Management
+          <ClipboardList className="mr-3" /> Inventory Management
         </Link>
         <Link
           href="/maintenance"
-          className="flex items-center p-2 hover:bg-gray-700"
+          className="flex items-center p-2 pl-5 hover:bg-gray-700"
         >
-          <X className="mr-3" /> Maintenance
+          <Wrench className="mr-3" /> Maintenance
         </Link>
       </nav>
     </aside>
