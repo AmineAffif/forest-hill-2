@@ -1,16 +1,13 @@
 import React from "react";
+import { Menu } from "lucide-react";
 
-const Header = () => {
+const Header = ({ toggleSidebar }: { toggleSidebar: any }) => {
   return (
-    <header className="bg-gray-100 p-4 flex justify-between items-center shadow-md">
+    <header className="bg-white shadow-md p-4 flex items-center justify-between">
+      <button className="md:hidden" onClick={toggleSidebar}>
+        <Menu className="h-6 w-6" />
+      </button>
       <h1 className="text-2xl font-bold">Dashboard</h1>
-      <div>
-        <input
-          type="text"
-          placeholder="Search..."
-          className="p-2 border rounded"
-        />
-      </div>
     </header>
   );
 };

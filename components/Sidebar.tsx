@@ -1,25 +1,31 @@
 import React from "react";
-import {
-  Home,
-  BarChart2,
-  Activity,
-  DollarSign,
-  Users,
-  Settings,
-} from "lucide-react";
+import { Home, BarChart2, Activity, DollarSign, Users, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-const Sidebar = () => {
+const Sidebar = ({
+  isOpen,
+  toggleSidebar,
+}: {
+  isOpen: boolean;
+  toggleSidebar: () => void;
+}) => {
   return (
-    <aside className="w-64 h-full bg-gray-800 text-white">
-      <div className="p-4 flex justify-center items-center w-full">
+    <aside
+      className={`fixed inset-y-0 left-0 transform ${
+        isOpen ? "translate-x-0" : "-translate-x-full"
+      } md:relative md:translate-x-0 w-64 bg-gray-800 text-white transition-transform duration-300 ease-in-out z-50`}
+    >
+      <div className="p-4 flex justify-between items-center w-full">
         <Image
           src="/forest-hill-logo.png"
           alt="Forest Hill Logo"
           width={200}
           height={200}
         />
+        <button className="md:hidden" onClick={toggleSidebar}>
+          <X className="text-white" />
+        </button>
       </div>
       <nav className="mt-10">
         <Link href="/" className="flex items-center p-2 hover:bg-gray-700">
@@ -65,13 +71,13 @@ const Sidebar = () => {
           href="/inventory-management"
           className="flex items-center p-2 hover:bg-gray-700"
         >
-          <Settings className="mr-3" /> Inventory Management
+          <X className="mr-3" /> Inventory Management
         </Link>
         <Link
           href="/maintenance"
           className="flex items-center p-2 hover:bg-gray-700"
         >
-          <Settings className="mr-3" /> Maintenance
+          <X className="mr-3" /> Maintenance
         </Link>
       </nav>
     </aside>
